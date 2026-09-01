@@ -1,28 +1,39 @@
 using UnityEngine;
+using UnityEngine.UIElements;
 
 public class Movement : MonoBehaviour
 {
+    float mainThrust = 100f;
+    float RotationThrust = 10f;
+    Rigidbody rb;
+    void start()
+    {
+        rb = GetComponent<Rigidbody>();
+    }
     void Update()
     {
-        ProcessThrust();
-        ProcessRotation();
+
     }
-    void ProcessThrust()
+    void Processthrust()
     {
-        if(Input.GetKey(KeyCode.Space))
+        if (Input.GetKey(KeyCode.Space))
         {
-            Debug.Log("You have pressed space bar ");
+            rb.AddRelativeForce(Vector3.up * Time.deltaTime * mainThrust);
         }
     }
     void ProcessRotation()
     {
-        if(Input.GetKey(KeyCode.A))
+        if (Input.GetKey(KeyCode.A))
         {
-            Debug.Log("Rotating Left");
+            ApplyRotation(RotationThrust);
         }
-        else if(Input.GetKey(KeyCode.D))
+        else if (Input.GetKey(KeyCode.D))
         {
-            Debug.Log("Rotating Right");
+            ApplyRotation(-RotationThrust);
         }
+    }
+    void ApplyRotation(float rotation)
+    {
+        transform.Rotate(Vector3.forward * Time.deltaTime * rotation);
     }
 }

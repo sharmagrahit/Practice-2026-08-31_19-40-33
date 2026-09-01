@@ -132,7 +132,7 @@ GameObject:
   - component: {fileID: 110649998}
   - component: {fileID: 110649997}
   m_Layer: 0
-  m_Name: Cube
+  m_Name: Base
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -317,13 +317,13 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 330585543}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.08937642, y: -0, z: -0, w: 0.9959979}
-  m_LocalPosition: {x: 0, y: 12.59, z: -27.88}
+  m_LocalRotation: {x: 0.24625029, y: -0, z: -0, w: 0.9692063}
+  m_LocalPosition: {x: 0, y: 22.8, z: -25.8}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 10.255, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 28.511, y: 0, z: 0}
 --- !u!114 &330585547
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -508,7 +508,7 @@ GameObject:
   - component: {fileID: 556407750}
   - component: {fileID: 556407749}
   m_Layer: 0
-  m_Name: Cube (1)
+  m_Name: Launching Pad
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -669,8 +669,9 @@ GameObject:
   - component: {fileID: 1268342836}
   - component: {fileID: 1268342835}
   - component: {fileID: 1268342839}
+  - component: {fileID: 1268342840}
   m_Layer: 0
-  m_Name: Cube (3)
+  m_Name: Rocket
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -781,6 +782,35 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5f195ec77868e164eb17a60dad274973, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Movement
+  mainThrust: 1000
+  RotationThrust: 1
+--- !u!54 &1268342840
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1268342834}
+  serializedVersion: 5
+  m_Mass: 1
+  m_LinearDamping: 0
+  m_AngularDamping: 0.05
+  m_CenterOfMass: {x: 0, y: 0, z: 0}
+  m_InertiaTensor: {x: 1, y: 1, z: 1}
+  m_InertiaRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ImplicitCom: 1
+  m_ImplicitTensor: 1
+  m_UseGravity: 1
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
 --- !u!1 &1496384183
 GameObject:
   m_ObjectHideFlags: 0
@@ -794,7 +824,7 @@ GameObject:
   - component: {fileID: 1496384185}
   - component: {fileID: 1496384184}
   m_Layer: 0
-  m_Name: Cube (2)
+  m_Name: Landing Pad
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
