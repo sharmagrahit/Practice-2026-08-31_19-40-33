@@ -3,22 +3,33 @@ using UnityEngine.UIElements;
 
 public class Movement : MonoBehaviour
 {
-    float mainThrust = 100f;
-    float RotationThrust = 10f;
+    [SerializeField] float mainThrust = 100f;
+    [SerializeField] float RotationThrust = 1f;
     Rigidbody rb;
-    void start()
+    AudioSource audiosource;
+    void Start()
     {
+        audiosource = GetComponent<AudioSource>();
         rb = GetComponent<Rigidbody>();
     }
     void Update()
     {
-
+        ProcessThrust();
+        ProcessRotation();
     }
-    void Processthrust()
+    void ProcessThrust()
     {
         if (Input.GetKey(KeyCode.Space))
         {
             rb.AddRelativeForce(Vector3.up * Time.deltaTime * mainThrust);
+            if (!audiosource.isPlaying)
+            {
+                audiosource.Play();
+            }
+        }
+        else
+        {
+            audiosource.Stop();
         }
     }
     void ProcessRotation()
@@ -34,6 +45,8 @@ public class Movement : MonoBehaviour
     }
     void ApplyRotation(float rotation)
     {
+        rb.freezeRotation = true;
         transform.Rotate(Vector3.forward * Time.deltaTime * rotation);
+        rb.freezeRotation = false;
     }
 }
